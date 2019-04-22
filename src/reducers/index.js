@@ -13,14 +13,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case INCREMENT:
-      console.log('increment was triggered');
+      // console.log('increment was triggered');
       return {
         ...state,
         count : state.count + 1
       }
-      
+
     case DECREMENT:
-      console.log('decrement was triggered');
+      // console.log('decrement was triggered');
       return {
         ...state,
         count : state.count - 1

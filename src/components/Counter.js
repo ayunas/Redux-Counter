@@ -6,15 +6,20 @@ class Counter extends Component {
     constructor(props) {
         super(props);
     }
-    incrementIfOdd = () => {
+
+    incrementIfOdd = (e) => {
+        console.log("e.target.value for incrementifOdd", e.target.value);
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
+        console.log('increment if odd was triggered');
 
     };
 
-    incrementAsync = () => {
+    incrementAsync = (e) => {
+        console.log("e.target.value for incrementAsync", e.target.value);
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        console.log('incrementAsync was triggered');
     };
 
     render() {
@@ -31,14 +36,13 @@ class Counter extends Component {
                 <button onClick={() => this.props.decrement()}>
                     -
                 </button>
-                 {/* Uncomment these button tags if you got
-                around to implementing the extra credit functions */}
-                {/* <button onClick={this.incrementIfOdd}>
+                 
+                <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
                 <button onClick={this.incrementAsync}>
                     Increment async
-                </button>  */}
+                </button> 
             </p>
         );
     }
