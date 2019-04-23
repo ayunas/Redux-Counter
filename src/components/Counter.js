@@ -8,22 +8,23 @@ class Counter extends Component {
     }
 
     incrementIfOdd = (e) => {
-        console.log("e.target.value for incrementifOdd", e.target.value);
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
         console.log('increment if odd was triggered');
-
+        if (this.props.count % 2 === 1) {
+            this.props.increment()
+        }
     };
 
     incrementAsync = (e) => {
-        console.log("e.target.value for incrementAsync", e.target.value);
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
         console.log('incrementAsync was triggered');
+        console.log(e);
     };
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         // Fill in the two button onClick methods
         // Upon clicking these buttons, the count
         // should decrement or increment accordingly
