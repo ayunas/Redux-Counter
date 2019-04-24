@@ -3,37 +3,47 @@ import { connect } from 'react-redux';
 import { increment, decrement } from '../actions';
 
 class Counter extends Component {
-    incrementIfOdd = () => {
+    constructor(props) {
+        super(props);
+    }
+
+    incrementIfOdd = (e) => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
+        console.log('increment if odd was triggered');
+        if (this.props.count % 2 === 1) {
+            this.props.increment()
+        }
     };
 
-    incrementAsync = () => {
+    incrementAsync = (e) => {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        console.log('incrementAsync was triggered');
+        setTimeout(this.props.increment , 1000);
     };
 
     render() {
+        // console.log(this.props);
         // Fill in the two button onClick methods
         // Upon clicking these buttons, the count
         // should decrement or increment accordingly
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => this.props.increment()}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => this.props.decrement()}>
                     -
                 </button>
-                 {/* Uncomment these button tags if you got
-                around to implementing the extra credit functions */}
-                {/* <button onClick={this.incrementIfOdd}>
+                 
+                <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
                 <button onClick={this.incrementAsync}>
                     Increment async
-                </button>  */}
+                </button> 
             </p>
         );
     }
@@ -46,6 +56,7 @@ class Counter extends Component {
 // redux application, though, it would receive only the relevant
 // parts it needs from the state object.
 const mapStateToProps = (state) => {
+    
     return {
         count: state.count
     };
